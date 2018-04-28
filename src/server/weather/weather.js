@@ -3,7 +3,9 @@ const axios = require("axios");
 const getWeather = (lat, lng) => {
   return axios
     .get(
-      `https://api.darksky.net/forecast/4a04d1c42fd9d32c97a2c291a32d5e2d/${lat},${lng}?lang=it&exclude=minutely,hourly,alerts&units=si`
+      `https://api.darksky.net/forecast/${
+        process.env.WEATHER_API_KEY
+      }/${lat},${lng}?lang=it&exclude=minutely,hourly,alerts&units=si`
     )
     .then(response => {
       const weatherData = response.data.daily.data.map(weather => {

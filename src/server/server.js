@@ -1,8 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const { getWeather } = require("./weather/weather");
 const { getCity } = require("./geocoder/geocoder");
+const port = process.env.PORT || 8080;
 
 const app = express();
 
@@ -31,4 +33,4 @@ app.post("/api/weatherInfo", async (req, res) => {
   res.status(200).send({ ...city, canPlay, ...weather });
 });
 
-app.listen(8080, () => console.log("Listening on port 8080!"));
+app.listen(port, () => console.log(`Listening on port ${port}!`));

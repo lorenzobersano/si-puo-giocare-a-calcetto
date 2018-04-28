@@ -3,7 +3,9 @@ const axios = require("axios");
 const getCity = (lat, long) => {
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=AIzaSyDoni9NqKPfChr_GCma7IHquc8-yrcDi4M`
+      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${
+        process.env.GEOCODER_API_KEY
+      }`
     )
     .then(results => {
       const city = results.data.results[0].address_components[2].long_name;

@@ -12,7 +12,7 @@ const LoadingWrapper = styled.div`
 const Loading = () => (
   <LoadingWrapper>
     <img
-      src="../../../node_modules/loading-svg/loading-spin.svg"
+      src="../../../public/assets/images/loading-spin.svg"
       alt="Caricamento in corso"
     />
   </LoadingWrapper>
