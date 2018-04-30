@@ -13,7 +13,7 @@ app.use(express.static("dist"));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "dist", "index.html"));
+  res.sendFile("index.html");
 });
 
 app.post("/api/weatherInfo", async (req, res) => {
