@@ -1,17 +1,17 @@
-import React, { Component, Fragment } from "react";
-import styled from "styled-components";
-import Skycons from "react-skycons";
-import toSnakeCase from "lodash.snakecase";
-import capitalize from "lodash.capitalize";
+import React, { Component, Fragment } from 'react';
+import styled from 'styled-components';
+import Skycons from 'react-skycons';
+import toSnakeCase from 'lodash.snakecase';
+import capitalize from 'lodash.capitalize';
 
-import Footer from "./Footer";
+import Footer from './Footer';
 import {
   convertTimestamp,
   convertPrecipProbability,
   convertPrecipIntensity,
   roundTemperature,
   putIcon
-} from "../utils/utils";
+} from '../utils/utils';
 
 // CSS
 const WeatherInfoCardStyle = styled.div`
@@ -19,7 +19,7 @@ const WeatherInfoCardStyle = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #eee;
   border-bottom: 0.5rem solid #fff;
 `;
@@ -62,21 +62,14 @@ export default class WeatherInfoCard extends Component {
             <h2>{capitalize(convertTimestamp(this.state.time))}</h2>
             {this.state.summary}
             <p>
-              Probabile al{" "}
-              {convertPrecipProbability(this.state.precipProbability)}% che
-              piova ({convertPrecipIntensity(this.state.precipIntensity)})
+              Probabile al {convertPrecipProbability(this.state.precipProbability)} che piova ({convertPrecipIntensity(this.state.precipIntensity)})
             </p>
           </WeatherInfoGeneralInfo>
           <WeatherInfoMaxTemp>
-            <Temperature>
-              {roundTemperature(this.state.temperatureHigh)}°C
-            </Temperature>
+            <Temperature>{roundTemperature(this.state.temperatureHigh)}°C</Temperature>
           </WeatherInfoMaxTemp>
           <WeatherInfoWeatherPic>
-            <Skycons
-              color="black"
-              icon={toSnakeCase(this.state.icon).toUpperCase()}
-            />
+            <Skycons color="black" icon={toSnakeCase(this.state.icon).toUpperCase()} />
           </WeatherInfoWeatherPic>
         </WeatherInfoCardStyle>
       </Fragment>
