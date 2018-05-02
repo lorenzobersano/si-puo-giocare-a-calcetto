@@ -1,12 +1,14 @@
 {
   "name": "si-puo-giocare-a-calcetto",
   "version": "1.0.0",
-  "description": "Simple web app to check if it is possible to play five-a-side football in the next days",
+  "description":
+    "Simple web app to check if it is possible to play five-a-side football in the next days",
   "main": "src/server/server.js",
   "scripts": {
     "start": "node src/server/server.js",
     "build": "webpack --mode production",
-    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "client":
+      "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },

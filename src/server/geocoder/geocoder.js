@@ -9,7 +9,7 @@ const getCity = (lat, long) => {
     )
     .then(results => {
       const city = results.data.results[0].address_components[2].long_name;
-      const country = results.data.results[0].address_components[6].short_name;
+      const country = results.data.results[0].address_components[5].short_name;
 
       return Promise.resolve({
         city,

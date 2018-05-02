@@ -1,23 +1,20 @@
-const path = require("path");
-const express = require("express");
-const bodyParser = require("body-parser");
-require("dotenv").config();
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+require('dotenv').config();
 
-const { getWeather } = require("./weather/weather");
-const { getCity } = require("./geocoder/geocoder");
+const { getWeather } = require('./weather/weather');
+const { getCity } = require('./geocoder/geocoder');
 
 const port = process.env.PORT || 8080;
 const app = express();
 
-app.use(express.static("dist"));
+app.use(express.static('dist'));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.sendFile("index.html");
-});
-
-app.post("/api/weatherInfo", async (req, res) => {
-  let weather, city;
+app.post('/api/weatherInfo', async (req, res) => {
+  let weather;
+  let city;
 
   const lat = req.body.latitude;
   const long = req.body.longitude;
@@ -29,9 +26,7 @@ app.post("/api/weatherInfo", async (req, res) => {
     res.send(e);
   }
 
-  const daysWhenItDoesntRain = weather.weatherData.filter(
-    weather => weather.precipProbability <= 0.1
-  );
+  const daysWhenItDoesntRain = weather.weatherData.filter(weather => weather.precipProbability <= 0.1);
 
   const canPlay = daysWhenItDoesntRain.length > 0;
 
