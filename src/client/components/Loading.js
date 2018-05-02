@@ -1,5 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+
+import LoadingSpinner from '../../../public/assets/images/loading-spin.svg';
 
 const LoadingWrapper = styled.div`
   align-items: center;
@@ -11,10 +13,7 @@ const LoadingWrapper = styled.div`
 
 const Loading = () => (
   <LoadingWrapper>
-    <img
-      src="../../../public/assets/images/loading-spin.svg"
-      alt="Caricamento in corso"
-    />
+    <img src={LoadingSpinner} alt="Caricamento in corso" />
   </LoadingWrapper>
 );
 

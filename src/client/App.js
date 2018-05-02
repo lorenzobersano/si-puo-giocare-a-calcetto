@@ -1,12 +1,12 @@
-import React, { Component, Fragment } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import React, { Component, Fragment } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
-import Header from "./components/Header";
-import WeatherInfo from "./components/WeatherInfo";
-import Loading from "./components/Loading";
-import Footer from "./components/Footer";
+import Header from './components/Header';
+import WeatherInfo from './components/WeatherInfo';
+import Loading from './components/Loading';
+import Footer from './components/Footer';
 
-import { getLocation } from "./utils/utils";
+import { getLocation } from './utils/utils';
 
 export default class App extends Component {
   constructor() {
@@ -22,11 +22,11 @@ export default class App extends Component {
     try {
       const pos = await getLocation();
 
-      const response = await fetch("/api/weatherInfo", {
-        method: "POST",
+      const response = await fetch('/api/weatherInfo', {
+        method: 'POST',
         body: JSON.stringify(pos),
         headers: new Headers({
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         })
       });
 
