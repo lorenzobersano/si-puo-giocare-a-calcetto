@@ -1,4 +1,4 @@
-# SiPu�GiocareACalcetto?
+# SiPuòGiocareACalcetto?
 
 WepApp created to try better the skills learned in React and NodeJS course.
 
