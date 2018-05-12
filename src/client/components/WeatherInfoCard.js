@@ -4,13 +4,11 @@ import Skycons from 'react-skycons';
 import toSnakeCase from 'lodash.snakecase';
 import capitalize from 'lodash.capitalize';
 
-import Footer from './Footer';
 import {
   convertTimestamp,
   convertPrecipProbability,
   convertPrecipIntensity,
-  roundTemperature,
-  putIcon
+  roundTemperature
 } from '../utils/utils';
 
 // CSS
@@ -62,7 +60,8 @@ export default class WeatherInfoCard extends Component {
             <h2>{capitalize(convertTimestamp(this.state.time))}</h2>
             {this.state.summary}
             <p>
-              Probabile al {convertPrecipProbability(this.state.precipProbability)} che piova ({convertPrecipIntensity(this.state.precipIntensity)})
+              Probabile al {convertPrecipProbability(this.state.precipProbability)}
+              che piova ({convertPrecipIntensity(this.state.precipIntensity)})
             </p>
           </WeatherInfoGeneralInfo>
           <WeatherInfoMaxTemp>

@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import Container from "./Container";
+import Container from './Container';
 
 const FooterStyle = styled.footer`
   background-color: #388e3c;

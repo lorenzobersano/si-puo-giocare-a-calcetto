@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
 
 import Header from './components/Header';
 import WeatherInfo from './components/WeatherInfo';
@@ -31,11 +30,11 @@ export default class App extends Component {
       });
 
       weatherInfo = await response.json();
-    } catch (e) {
-      alert(e);
-    }
 
-    this.setState({ weatherInfo });
+      this.setState({ weatherInfo });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   render() {

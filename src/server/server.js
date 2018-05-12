@@ -1,4 +1,3 @@
-const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
@@ -26,9 +25,11 @@ app.post('/api/weatherInfo', async (req, res) => {
     res.send(e);
   }
 
-  const daysWhenItDoesntRain = weather.weatherData.filter(weather => weather.precipProbability <= 0.1);
+  const { weatherData } = weather;
 
-  const canPlay = daysWhenItDoesntRain.length > 0;
+  const daysNoRain = weatherData.filter(filtWeather => filtWeather.precipProbability <= 0.1);
+
+  const canPlay = daysNoRain.length > 0;
 
   res.status(200).send({ ...city, canPlay, ...weather });
 });

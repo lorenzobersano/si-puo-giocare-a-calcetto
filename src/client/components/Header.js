@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import Container from "./Container";
+import Container from './Container';
 
 const HeaderStyle = styled.header`
   background-color: #4caf50;
@@ -18,7 +18,7 @@ const HeaderTitle = styled.h1`
   }
 `;
 
-const Header = props => (
+const Header = () => (
   <HeaderStyle>
     <Container>
       <HeaderTitle>SiPuòGiocareACalcetto?</HeaderTitle>

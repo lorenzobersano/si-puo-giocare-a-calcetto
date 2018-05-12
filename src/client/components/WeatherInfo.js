@@ -1,13 +1,14 @@
-import React, { Component, Fragment } from "react";
-import styled from "styled-components";
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import CanPlay from "./CanPlay";
-import WeatherInfoCard from "./WeatherInfoCard";
-import Container from "./Container";
+import CanPlay from './CanPlay';
+import WeatherInfoCard from './WeatherInfoCard';
+import Container from './Container';
 
 // Styles
 const WeatherInfoStyle = styled.section`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 `;
 
 const WeatherInfoCity = styled.h1`
@@ -20,22 +21,34 @@ const WeatherInfoSummary = styled.h2`
 `;
 
 // Component
-const WeatherInfo = props => (
+const WeatherInfo = ({
+  canPlay = true,
+  city = 'Non trovata',
+  country = 'Non trovata',
+  summary = 'Riassunto del meteo non disponibile',
+  weatherData = {}
+}) => (
   <Fragment>
-    <CanPlay canPlay={props.canPlay} />
+    <CanPlay canPlay={canPlay} />
 
     <Container>
       <WeatherInfoStyle>
         <WeatherInfoCity>
-          {props.city}, {props.country}
+          {city}, {country}
         </WeatherInfoCity>
-        <WeatherInfoSummary>{props.summary}</WeatherInfoSummary>
+        <WeatherInfoSummary>{summary}</WeatherInfoSummary>
       </WeatherInfoStyle>
-      {props.weatherData.map((element, key) => {
-        return <WeatherInfoCard {...element} key={key} id={key} />;
-      })}
+      {weatherData.map((element, key) => <WeatherInfoCard {...element} id={key} />)}
     </Container>
   </Fragment>
 );
+
+WeatherInfo.propTypes = {
+  canPlay: PropTypes.bool,
+  city: PropTypes.string,
+  country: PropTypes.string,
+  summary: PropTypes.string,
+  weatherData: PropTypes.isRequired
+};
 
 export default WeatherInfo;

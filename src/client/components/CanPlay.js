@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import Container from "./Container";
+import Container from './Container';
 
 const CanPlayStyle = styled.div`
   font-size: 3rem;
@@ -13,20 +14,30 @@ const CanPlayStyle = styled.div`
   }
 `;
 
-const CanPlay = props => (
+const CanPlay = ({ canPlay = true }) => (
   <CanPlayStyle>
     <Container>
-      {props.canPlay !== undefined ? (
-        props.canPlay ? (
-          <h1>Sì! 🎉</h1>
-        ) : (
-          <h1>No... 😭</h1>
-        )
+      {canPlay ? (
+        <h1>
+          Sì!{' '}
+          <span role="img" aria-label="festa">
+            🎉
+          </span>
+        </h1>
       ) : (
-        <h1>Sto cercando di recuperare il meteo per la tua zona...</h1>
+        <h1>
+          No...{' '}
+          <span role="img" aria-label="triste">
+            😭
+          </span>
+        </h1>
       )}
     </Container>
   </CanPlayStyle>
 );
+
+CanPlay.propTypes = {
+  canPlay: PropTypes.bool
+};
 
 export default CanPlay;
